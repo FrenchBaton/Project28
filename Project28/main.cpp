@@ -9,7 +9,15 @@ int main() {
 	v.Init();
 	v.Print();
 
-	v.AddBack(8);
+	v(10);
+	v.Print();
+
+	cout << v[0] << endl;
+	cout << static_cast<char*>(v) << endl;
+	cout << static_cast<int>(v) << endl;
+
+
+	/*v.AddBack(8);
 	v.Add(10);
 	v.Print();
 
@@ -43,6 +51,6 @@ int main() {
 	v.InsertAt(0, 1, temp);
 	v.Print();
 	v.RemoveAt(0, 0);
-	v.Print();
+	v.Print();*/
 	return 0;
 }

@@ -31,6 +31,10 @@ public:
     void SetAt(int idx, T obj);
 
     T& operator[](int idx);
+    void operator()(int a);
+    operator int();
+    operator char* ();
+
 
     void Add(T a);
     Array<T> Append(Array<T> arr);
@@ -187,6 +191,38 @@ template<class T>
 T& Array<T>::operator[](int idx)
 {
     return ptr[idx];
+}
+
+template<class T>
+void Array<T>::operator()(int a)
+{
+    for (int i = 0; i <= lastElIdx; i++)
+    {
+        ptr[i] += a;
+    }
+}
+
+template<class T>
+Array<T>::operator int()
+{
+    int rez = 0;
+    for (int i = 0; i <= lastElIdx; i++)
+    {
+        rez += ptr[i];
+    }
+    return rez;
+}
+
+template<class T>
+Array<T>::operator char* ()
+{
+    char* rez = new char[lastElIdx+2];
+    for (int i = 0; i <= lastElIdx; i++)
+    {
+        rez[i] = ptr[i];
+    }
+    rez[lastElIdx + 1] = '\0';
+    return rez;
 }
 
 template<class T>
